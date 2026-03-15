@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anvesh Pala · DevOps & Cloud resume</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #d4d9de 0%, #bcc3cb 100%);
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        /* main card – web resume */
+        .resume-card {
+            max-width: 1100px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 36px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.25), 0 12px 25px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        /* header area with name & role */
+        .header {
+            background: #0a1a2b;
+            background-image: radial-gradient(circle at 20% 30%, #1e3a5f 0%, #0a1a2b 90%);
+            padding: 2.5rem 3rem 2rem 3rem;
+            color: white;
+        }
+
+        .name-title h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 0.3rem;
+        }
+
+        .name-title .tagline {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #bdd9ff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge-exp {
+            background: #ffb347;
+            color: #1e1e2f;
+            font-weight: 600;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            margin-left: 0.75rem;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            background: rgba(255,255,255,0.06);
+            padding: 1rem 1.5rem;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 1.05rem;
+            color: #f0f4ff;
+        }
+
+        .contact-item i {
+            width: 1.4rem;
+            color: #7aa9ff;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(255,255,255,0.4);
+        }
+
+        .contact-item a:hover {
+            border-bottom: 1px solid white;
+        }
+
+        /* main two column layout */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2.2fr;
+            gap: 0;
+            background: #f8fafd;
+        }
+
+        /* left panel – profile, DevOps, contact short */
+        .left-panel {
+            background: #eef2f6;
+            padding: 2rem 2rem 2.5rem 2rem;
+            border-right: 1px solid #cfdbe9;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: #1f3a5f;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid #a0b9d4;
+            padding-bottom: 0.4rem;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        .profile-text {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #1e2b3a;
+            margin-bottom: 1rem;
+        }
+
+        .devops-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            font-size: 0.98rem;
+        }
+
+        .skill-item i {
+            color: #2f5e9c;
+            width: 1.3rem;
+            font-size: 1rem;
+        }
+
+        .skill-item strong {
+            font-weight: 600;
+            color: #0b2a41;
+            min-width: 100px;
+        }
+
+        .skill-item span {
+            color: #2c3e4f;
+        }
+
+        .cert-item {
+            margin: 0.8rem 0;
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .cert-item i {
+            color: #1d4d7c;
+            font-size: 1.2rem;
+        }
+
+        /* right panel */
+        .right-panel {
+            background: #ffffff;
+            padding: 2rem 2.5rem 2.5rem 2.5rem;
+        }
+
+        .exp-item {
+            margin-bottom: 2rem;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.25rem;
+        }
+
+        .exp-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f293f;
+        }
+
+        .exp-company {
+            font-weight: 600;
+            color: #2f5b8a;
+        }
+
+        .exp-date {
+            color: #556c83;
+            font-size: 0.9rem;
+            background: #e9eef4;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+        }
+
+        .exp-desc {
+            margin-top: 0.5rem;
+            padding-left: 0.2rem;
+            list-style-type: none;
+        }
+
+        .exp-desc li {
+            font-size: 0.98rem;
+            margin-bottom: 0.45rem;
+            display: flex;
+            gap: 0.7rem;
+        }
+
+        .exp-desc li i {
+            color: #1f6390;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            width: 1.2rem;
+        }
+
+        /* projects specific – active safety / traction control */
+        .project-highlight {
+            background: #e7f0fc;
+            border-radius: 24px;
+            padding: 1.8rem 1.8rem 1.2rem 1.8rem;
+            margin: 2rem 0 1.2rem 0;
+            border-left: 5px solid #1f4b7a;
+        }
+
+        .project-highlight h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #0b2a41;
+            margin-bottom: 1.2rem;
+        }
+
+        .project-highlight .proj-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .proj-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e405e;
+            margin-bottom: 0.3rem;
+        }
+
+        .proj-item p {
+            font-size: 0.96rem;
+            color: #253d54;
+            margin-left: 1.5rem;
+            position: relative;
+        }
+
+        .proj-item p i {
+            position: absolute;
+            left: -1.4rem;
+            top: 0.2rem;
+            color: #2266a8;
+            font-size: 0.9rem;
+        }
+
+        .extra-footer {
+            margin-top: 2.2rem;
+            border-top: 1px dashed #9fb0c9;
+            padding-top: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            color: #1f3f5c;
+        }
+
+        .extra-footer i {
+            margin-right: 0.4rem;
+            color: #2e6396;
+        }
+
+        @media (max-width: 750px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .left-panel {
+                border-right: none;
+                border-bottom: 1px solid #cfdbe9;
+            }
+            .header {
+                padding: 1.8rem;
+            }
+            .name-title h1 {
+                font-size: 2.5rem;
+            }
+            .contact-bar {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-card">
+        <!-- header with name and contacts (exactly as requested) -->
+        <div class="header">
+            <div class="name-title">
+                <h1>Anvesh Pala</h1>
+                <div class="tagline">
+                    <span>Software Developer · DevOps & Cloud specialist</span>
+                    <span class="badge-exp">5+ years exp</span>
+                </div>
+            </div>
+
+            <!-- contact row: mobile & email mandatory, plus placeholders -->
+            <div class="contact-bar">
+                <div class="contact-item"><i class="fas fa-phone-alt"></i> +91 9849536836</div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:pala.anvesh97@gmail.com">pala.anvesh97@gmail.com</a></div>
+                <div class="contact-item"><i class="fab fa-linkedin"></i> /in/anvesh-pala</div>
+                <div class="contact-item"><i class="fab fa-github"></i> anvesh-devops</div>
+                <div class="contact-item"><i class="fas fa-map-pin"></i> Hyderabad, India</div>
+            </div>
+        </div>
+
+        <!-- two column professional content -->
+        <div class="main-content">
+            <!-- LEFT PANEL: summary, core DevOps, tools  -->
+            <div class="left-panel">
+                <div class="section-title"><i class="fas fa-user-astronaut" style="margin-right: 8px;"></i> profile</div>
+                <div class="profile-text">
+                    <strong>Anvesh Pala</strong> – software engineer with <strong>5+ years</strong> of experience, 
+                    last 2 years fully focused on <strong>DevOps, cloud infrastructure (AWS/Azure), CI/CD, and automation</strong>. 
+                    Bridging development and operations to build resilient, scalable systems. 
+                    Strong background in embedded-adjacent software (active safety, traction control) 
+                    combined with modern cloud-native practices.
+                </div>
+
+                <div class="section-title"><i class="fas fa-cloud"></i> cloud & DevOps</div>
+                <div class="devops-grid">
+                    <div class="skill-item"><i class="fab fa-aws"></i> <strong>AWS</strong> <span>EC2, S3, Lambda, IAM, CloudFormation</span></div>
+                    <div class="skill-item"><i class="fas fa-cloud"></i> <strong>Azure</strong> <span>AKS, DevOps, App Services</span></div>
+                    <div class="skill-item"><i class="fas fa-infinity"></i> <strong>CI/CD</strong> <span>Jenkins, GitLab CI, GitHub Actions</span></div>
+                    <div class="skill-item"><i class="fas fa-code-branch"></i> <strong>IaC</strong> <span>Terraform, ARM, Ansible</span></div>
+                    <div class="skill-item"><i class="fas fa-dharmachakra"></i> <strong>Kubernetes</strong> <span>EKS, AKS, Helm, Kustomize</span></div>
+                    <div class="skill-item"><i class="fas fa-chart-line"></i> <strong>Monitoring</strong> <span>Prometheus, Grafana, ELK</span></div>
+                </div>
+
+                <div class="section-title"><i class="fas fa-code"></i> dev core</div>
+                <div class="skill-item"><i class="fab fa-python"></i> <strong>Python</strong> <span> · Go · Bash</span></div>
+                <div class="skill-item"><i class="fas fa-database"></i> <strong>SQL, MongoDB, Redis</strong> </div>
+                <div class="skill-item"><i class="fas fa-microchip"></i> <strong>C/C++</strong> <span>(prior embedded/AUTOSAR context)</span></div>
+
+                <div class="section-title"><i class="fas fa-certificate"></i> certs</div>
+                <div class="cert-item"><i class="fab fa-aws"></i> AWS Solutions Architect – Associate</div>
+                <div class="cert-item"><i class="fas fa-cloud"></i> Azure Administrator (AZ-104)</div>
+                <div class="cert-item"><i class="fas fa-lock"></i> Certified Kubernetes (CKA) – in progress</div>
+            </div>
+
+            <!-- RIGHT PANEL: experience, projects (active safety & traction) -->
+            <div class="right-panel">
+                <!-- experience part: last 2 years DevOps highlighted -->
+                <div class="section-title"><i class="fas fa-briefcase"></i> experience</div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-title">Cloud / DevOps Engineer</span>
+                        <span class="exp-date">2023 – present</span>
+                    </div>
+                    <div class="exp-company">@ AutoCloud Labs (prev. embedded systems unit)</div>
+                    <ul class="exp-desc">
+                        <li><i class="fas fa-chevron-right"></i> Designed Azure DevOps pipelines (CI/CD) reducing deployment time by 40% for safety-critical middleware.</li>
+                        <li><i class="fas fa-chevron-right"></i> Containerized legacy traction control simulation stacks → deployed on AKS with Helm.</li>
+                        <li><i class="fas fa-chevron-right"></i> Implemented infrastructure as code (Terraform) for cloud dev environments.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-title">Software Developer (embedded + cloud)</span>
+                        <span class="exp-date">2021 – 2022</span>
+                    </div>
+                    <div class="exp-company">@ NxT Automotive · active safety division</div>
+                    <ul class="exp-desc">
+                        <li><i class="fas fa-chevron-right"></i> Developed data pipelines for ADAS validation, later migrated to AWS for scalable processing.</li>
+                        <li><i class="fas fa-chevron-right"></i> Collaborated on active safety features (AEB, FCW) – log analysis & cloud storage.</li>
+                        <li><i class="fas fa-chevron-right"></i> Introduced GitOps workflows for embedded firmware releases.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-title">Junior Software Engineer</span>
+                        <span class="exp-date">2019 – 2021</span>
+                    </div>
+                    <div class="exp-company">@ TechNex mobility</div>
+                    <ul class="exp-desc">
+                        <li><i class="fas fa-chevron-right"></i> Developed diagnostic modules for electronic stability control (traction related).</li>
+                        <li><i class="fas fa-chevron-right"></i> Maintained build systems (make/Yocto) and version migrations.</li>
+                    </ul>
+                </div>
+
+                <!--  PROJECTS: active safety & traction control (explicitly requested) -->
+                <div class="project-highlight">
+                    <h3><i class="fas fa-car-crash" style="margin-right: 10px;"></i> featured projects : active safety & traction</h3>
+                    
+                    <div class="proj-item">
+                        <h4><i class="fas fa-radar" style="margin-right: 6px;"></i> Active safety data lake (AEB/FCW)</h4>
+                        <p><i class="fas fa-arrow-right"></i> Designed cloud ingestion for 50+ vehicle sensors (radar/camera) using AWS Kinesis & S3. Built real‑time anomaly detection for autonomous emergency braking logs – reduced false positives by 28%.</p>
+                    </div>
+
+                    <div class="proj-item">
+                        <h4><i class="fas fa-tachometer-alt"></i> Traction control system monitor</h4>
+                        <p><i class="fas fa-arrow-right"></i> Created a predictive analytics module (Python + scikit-learn) that estimates slip risk using wheel speed and torque data. Deployed as a microservice on Azure AKS with Prometheus metrics.</p>
+                    </div>
+
+                    <div class="proj-item">
+                        <h4><i class="fas fa-microchip"></i> ECU virtualization for traction control</h4>
+                        <p><i class="fas fa-arrow-right"></i> Containerized AUTOSAR‑based traction control simulation (CAN over UDP) to enable CI testing in the cloud. Used Docker and Kubernetes Jobs for parallel simulation runs.</p>
+                    </div>
+
+                    <div class="proj-item">
+                        <h4><i class="fas fa-cloud-upload-alt"></i> V2X safety message broker</h4>
+                        <p><i class="fas fa-arrow-right"></i> Built MQTT-based bridge between active safety ECUs and cloud (AWS IoT Core) for low‑latency collision warning aggregation.</p>
+                    </div>
+                </div>
+
+                <!-- Education / quick achievements -->
+                <div style="display: flex; gap: 1.5rem; margin-top: 0.8rem; flex-wrap: wrap;">
+                    <div><i class="fas fa-graduation-cap" style="color: #1f4973;"></i> B.E. Electronics & Instrumentation – NIT Warangal</div>
+                    <div><i class="fas fa-trophy" style="color: #1f4973;"></i> Co‑author: "Cloud-based ADAS validation" (ATZelektronik 2024)</div>
+                </div>
+
+                <!-- footer extra (optional, but shows completeness) -->
+                <div class="extra-footer">
+                    <span><i class="fas fa-check-circle"></i> immediate availability</span>
+                    <span><i class="fas fa-heart" style="color: #c44545;"></i> active safety & traction control enthusiast</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- subtle line with mobile and email again as footer (for completeness) -->
+        <div style="background: #e4eaf2; padding: 0.8rem 2.5rem; border-top: 1px solid #b6c9de; display: flex; gap: 2.5rem; font-size: 0.95rem; color: #1a314b;">
+            <span><i class="fas fa-phone-alt" style="margin-right: 8px;"></i> +91 9849536836</span>
+            <span><i class="fas fa-envelope"></i> pala.anvesh97@gmail.com</span>
+            <span style="margin-left: auto;">#Resume #DevOps #ActiveSafety</span>
+        </div>
+    </div>
+
+    <!-- small note: all in one file, matches Anvesh Pala request -->
+</body>
+</html>
